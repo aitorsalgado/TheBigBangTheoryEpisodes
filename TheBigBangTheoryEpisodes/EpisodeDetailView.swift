@@ -45,7 +45,7 @@ struct EpisodeDetailView: View {
                     Text("Episode notes")
                         .font(.headline)
                     TextField("Write some notes for this episode", text: $episodeDetailVM.episodeNotes, axis: .vertical)
-                        .textFieldStyle(.roundedBorder)
+                        //.textFieldStyle(.roundedBorder)
                         .lineLimit(3)
                     VStack(alignment: .leading) {
                         Text("Episode rating")
