@@ -31,7 +31,7 @@ struct EpisodeDetailView: View {
                     HStack() {
                         Text("\(episode.runtime) MIN")
                             .font(.subheadline)
-                        Text("\(episode.airdate) MIN")
+                        Text("\(episode.airdate)")
                             .font(.subheadline)
                     }
                     Text(episode.summary)
@@ -45,7 +45,6 @@ struct EpisodeDetailView: View {
                     Text("Episode notes")
                         .font(.headline)
                     TextField("Write some notes for this episode", text: $episodeDetailVM.episodeNotes, axis: .vertical)
-                        //.textFieldStyle(.roundedBorder)
                         .lineLimit(3)
                     VStack(alignment: .leading) {
                         Text("Episode rating")

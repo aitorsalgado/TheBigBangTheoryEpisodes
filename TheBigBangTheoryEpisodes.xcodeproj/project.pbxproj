@@ -36,6 +36,7 @@
 		2A11334029844AD0009490EF /* TheBigBangTheoryEpisodesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBigBangTheoryEpisodesTests.swift; sourceTree = "<group>"; };
 		2A11334C29845A3F009490EF /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		2A11334E29846568009490EF /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		2A4F1C6D29917EB500B5EB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A66842729804752008E5E78 /* TheBigBangTheoryEpisodes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBigBangTheoryEpisodes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A66842A29804752008E5E78 /* TheBigBangTheoryEpisodesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBigBangTheoryEpisodesApp.swift; sourceTree = "<group>"; };
 		2A66842C29804752008E5E78 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 			children = (
 				2A66842A29804752008E5E78 /* TheBigBangTheoryEpisodesApp.swift */,
 				2A66842E29804752008E5E78 /* Assets.xcassets */,
+				2A4F1C6D29917EB500B5EB34 /* Info.plist */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -305,6 +307,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MG727TW3U4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheBigBangTheoryEpisodesTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AitorSalgado.TheBigBangTheoryEpisodesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,6 +327,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MG727TW3U4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TheBigBangTheoryEpisodesTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AitorSalgado.TheBigBangTheoryEpisodesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
