@@ -7,11 +7,19 @@
 
 import Foundation
 
+extension URL {
+    static let episodesInitDataURL = Bundle.main.url(forResource: "BigBang", withExtension: "json")!
+    static let episodesDocDataURL = URL.documentsDirectory.appending(component: "espisodesBigBangData").appendingPathExtension("json")
+}
+
 final class ModelPersistance {
     func loadEpisodes() -> [BigBang] {
-        guard let url = Bundle.main.url(forResource: "BigBang", withExtension: "json") else { return [] }
         do {
-            let data = try Data(contentsOf: url)
+            var urlDocData = URL.episodesDocDataURL
+            if !FileManager.default.fileExists(atPath: urlDocData.path()) {
+                urlDocData = URL.episodesInitDataURL
+            }
+            let data = try Data(contentsOf: urlDocData)
             return try JSONDecoder().decode([BigBang].self, from: data)
         } catch {
             print("Error load json data: \(error)")
@@ -20,7 +28,7 @@ final class ModelPersistance {
     }
     
     func saveEpisodes(episodes: [BigBang]) {
-        let url = URL.documentsDirectory.appending(component: "espisodesBigBangData").appendingPathExtension("json")
+        let url = URL.episodesDocDataURL
         do {
             let encoder = JSONEncoder() 
             encoder.outputFormatting = .prettyPrinted

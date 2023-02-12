@@ -20,6 +20,8 @@ struct EpisodeCell: View {
                 HStack {
                     Text("\(episode.runtime)m")
                     Text(episode.airdate)
+                    Spacer()
+                    Text("Episode Rating: \(episode.episodeRating ?? 0)")
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
