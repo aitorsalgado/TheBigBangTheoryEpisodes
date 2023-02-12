@@ -22,7 +22,9 @@ final class ModelPersistance {
     func saveEpisodes(episodes: [BigBang]) {
         let url = URL.documentsDirectory.appending(component: "espisodesBigBangData").appendingPathExtension("json")
         do {
-            let data = try JSONEncoder().encode(episodes)
+            let encoder = JSONEncoder() 
+            encoder.outputFormatting = .prettyPrinted
+            let data = try encoder.encode(episodes)
             try data.write(to: url, options: [.atomic,.completeFileProtection])
         } catch {
             print("Error save json data: \(error)")

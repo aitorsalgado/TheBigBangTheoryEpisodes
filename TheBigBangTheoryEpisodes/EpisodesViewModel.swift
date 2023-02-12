@@ -9,7 +9,11 @@ import SwiftUI
 
 final class EpisodesViewModel: ObservableObject {
     let persistance = ModelPersistance()
-    @Published var episodes:[BigBang]
+    @Published var episodes:[BigBang] {
+        didSet{
+            persistance.saveEpisodes(episodes: episodes)
+        }
+    }
     @Published var searchEpisodes = ""
     
     var filteredEpisodes: [BigBang] {
