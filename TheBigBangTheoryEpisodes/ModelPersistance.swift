@@ -14,12 +14,18 @@ final class ModelPersistance {
             let data = try Data(contentsOf: url)
             return try JSONDecoder().decode([BigBang].self, from: data)
         } catch {
-            print("Error en la carga del json de datos: \(error)")
+            print("Error load json data: \(error)")
             return []
         }
     }
     
     func saveEpisodes(episodes: [BigBang]) {
-        
+        let url = URL.documentsDirectory.appending(component: "espisodesBigBangData").appendingPathExtension("json")
+        do {
+            let data = try JSONEncoder().encode(episodes)
+            try data.write(to: url, options: [.atomic,.completeFileProtection])
+        } catch {
+            print("Error save json data: \(error)")
+        }
     }
 }
