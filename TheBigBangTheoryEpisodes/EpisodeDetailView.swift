@@ -82,9 +82,9 @@ struct EpisodeDetailView: View {
                 }
             }
         }
-        //.onAppear {
-        //    episodeDetailVM.initDetailEpisode(episode: episode)
-        //}
+        .onAppear {
+            episodeDetailVM.initDetailEpisode(episode: episode)
+        }
     }
     
     private func typeOfStarImage(starImageIndex: Int) -> some View {

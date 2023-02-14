@@ -12,8 +12,8 @@ final class EpisodeDetailViewModel:ObservableObject {
     @Published var episodeRating: Int = 0
     
     func initDetailEpisode(episode:BigBang) {
-        self.episodeNotes = episode.episodeNotes ?? ""
-        self.episodeRating = episode.episodeRating ?? 0 
+        episodeNotes = episode.episodeNotes ?? ""
+        episodeRating = episode.episodeRating ?? 0 
     }
     
     func saveEpisode(episode:BigBang) -> BigBang {

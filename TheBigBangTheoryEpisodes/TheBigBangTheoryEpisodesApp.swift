@@ -12,7 +12,7 @@ struct TheBigBangTheoryEpisodesApp: App {
     @StateObject var episodesVM = EpisodesViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EpisodesTabView()
                 .environmentObject(episodesVM)
         }
     }
