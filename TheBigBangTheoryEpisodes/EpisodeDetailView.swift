@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EpisodeDetailView: View {
     @EnvironmentObject var episodesVM:EpisodesViewModel
-    @ObservedObject var episodeDetailVM = EpisodeDetailViewModel()
+    @StateObject var episodeDetailVM = EpisodeDetailViewModel()
     @Environment (\.dismiss) var dismiss
     
     let episode:BigBang
