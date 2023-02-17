@@ -10,12 +10,18 @@ import SwiftUI
 final class EpisodesViewModel: ObservableObject {
     let persistance = ModelPersistance()
     @Published var episodes:[BigBang] {
-        didSet{
+        didSet {
             persistance.saveEpisodes(episodes: episodes)
         }
     }
     @Published var searchEpisodes = ""
+    @Published var favoritesEpisodes:FavoritesEpisodes {
+        didSet {
+            persistance.saveFavorites(favorites: favoritesEpisodes)
+        }
+    }
     
+    //Episodes functionality
     var filteredEpisodes: [BigBang] {
         if searchEpisodes.isEmpty {
             return episodes
@@ -52,11 +58,25 @@ final class EpisodesViewModel: ObservableObject {
     
     init () {
         self.episodes = persistance.loadEpisodes()
+        self.favoritesEpisodes = persistance.loadFavorites()
     }
     
     func updateEpisode(episode:BigBang)  {
         if let indexEpisodeUpdate = episodes.firstIndex(where: { $0.id == episode.id } ) {
             episodes[indexEpisodeUpdate] = episode
+        }
+    }
+    
+    // Favorites functionality.
+    func isFavoriteEpisode(idEpisode:Int) -> Bool {
+        favoritesEpisodes.favoritesIDs.contains(where: { $0 == idEpisode })
+    }
+    
+    func toggleFavorite(idEpisode:Int) {
+        if favoritesEpisodes.favoritesIDs.contains(where: { $0 == idEpisode }) {
+            favoritesEpisodes.favoritesIDs.removeAll(where: { $0 == idEpisode })
+        } else {
+            favoritesEpisodes.favoritesIDs.append(idEpisode)
         }
     }
 }

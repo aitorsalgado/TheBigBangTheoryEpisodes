@@ -25,5 +25,5 @@ extension BigBang {
 }
 
 struct FavoritesEpisodes: Codable {
-    let favoritesIDs:[Int]
+    var favoritesIDs:[Int]
 }

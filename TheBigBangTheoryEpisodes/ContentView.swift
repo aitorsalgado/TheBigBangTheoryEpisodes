@@ -18,6 +18,18 @@ struct ContentView: View {
                         ForEach(episodesPerSeason) { episode in
                                 NavigationLink(value: episode) {
                                     EpisodeCell(episode: episode)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                            Button {
+                                                episodesVM.toggleFavorite(idEpisode: episode.id)
+                                            } label: {
+                                                if episodesVM.isFavoriteEpisode(idEpisode: episode.id) {
+                                                    Label("Delete Favorite", systemImage: "star")
+                                                } else {
+                                                    Label("Add Favorite", systemImage: "star.fill")
+                                                }
+                                            }
+                                            .tint(episodesVM.isFavoriteEpisode(idEpisode: episode.id) ? .red : .yellow)
+                                        }
                                 }
                         }
                     } header: {

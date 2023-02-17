@@ -40,14 +40,14 @@ final class ModelPersistance {
         }
     }
     
-    func loadFavorites() -> FavoritesEpisodes? {
+    func loadFavorites() -> FavoritesEpisodes {
         do {
-            var urlFavData = URL.episodesFavIdsDocURL
+            let urlFavData = URL.episodesFavIdsDocURL
             let data = try Data(contentsOf: urlFavData)
             return try JSONDecoder().decode(FavoritesEpisodes.self, from: data)
         } catch {
             print("Error loading Favorites from JSON data: \(error)")
-            return nil
+            return FavoritesEpisodes.init(favoritesIDs: [])
         }
     }
     
