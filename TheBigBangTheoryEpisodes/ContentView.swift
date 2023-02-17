@@ -23,7 +23,7 @@ struct ContentView: View {
                                                 episodesVM.toggleFavorite(idEpisode: episode.id)
                                             } label: {
                                                 if episodesVM.isFavoriteEpisode(idEpisode: episode.id) {
-                                                    Label("Delete Favorite", systemImage: "star")
+                                                    Label("Remove Favorite", systemImage: "star")
                                                 } else {
                                                     Label("Add Favorite", systemImage: "star.fill")
                                                 }

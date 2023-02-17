@@ -22,16 +22,27 @@ struct EpisodesFavoritesView: View {
                 LazyVGrid(columns: favoriteColumns) {
                     ForEach(episodesVM.favoritesEpisodes.favoritesIDs, id:\.self) { favorite in
                         if let episode = episodesVM.episodeById(episodeId: favorite) {
-                            Image(decorative: episode.image)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(10)
+                            episodeImage(episode: episode)
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        episodesVM.toggleFavorite(idEpisode: favorite)
+                                    } label: {
+                                        Label("Remove favorite", systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                 }
             }
             .padding()
         }
+    }
+    
+    func episodeImage(episode:BigBang) -> some View {
+       return Image(decorative: episode.image)
+            .resizable()
+            .scaledToFit()
+            .cornerRadius(10)
     }
 }
 
