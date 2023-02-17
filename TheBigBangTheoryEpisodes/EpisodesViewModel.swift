@@ -67,6 +67,10 @@ final class EpisodesViewModel: ObservableObject {
         }
     }
     
+    func episodeById(episodeId: Int) -> BigBang? {
+        episodes.first(where: { $0.id == episodeId })
+    }
+    
     // Favorites functionality.
     func isFavoriteEpisode(idEpisode:Int) -> Bool {
         favoritesEpisodes.favoritesIDs.contains(where: { $0 == idEpisode })
