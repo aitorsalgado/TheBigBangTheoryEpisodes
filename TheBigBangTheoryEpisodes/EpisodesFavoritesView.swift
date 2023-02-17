@@ -9,9 +9,7 @@ import SwiftUI
 
 struct EpisodesFavoritesView: View {
     @EnvironmentObject var episodesVM:EpisodesViewModel
-    let favoriteColumns:[GridItem] = [GridItem(.flexible(), spacing: 10, alignment: .center),
-                                      GridItem(.flexible(), spacing: 10, alignment: .center),
-                                      GridItem(.flexible(), spacing: 10, alignment: .center)]
+    let favoriteColumns:[GridItem] = [GridItem(.adaptive(minimum: 150))]
     
     var body: some View {
         if episodesVM.favoritesEpisodes.favoritesIDs.isEmpty {
